@@ -1,0 +1,55 @@
+{#jia zai jing tai zi yuan #}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+{# ding yi biao ti bian liang #}
+    <title>{{ title }}</title>
+{#daoru css#}
+    <link rel="stylesheet" href=" {% static 'css/bootstrap.css' %}  ">
+    <link rel="stylesheet" href=" {% static 'css/swiper.css' %}  ">
+    <link rel="stylesheet" href=" {% static 'css/reset.css' %}  ">
+
+
+{#wa keng #}
+    {% block extStyle %}
+
+
+    {% endblock %}
+</head>
+<body>
+{#dao ru js  zhuyi j#}
+<script type="text/javascript" src="{% static 'js/jquery.js' %}">    </script>
+<script type="text/javascript" src="{% static 'js/base.js' %}">    </script>
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}">    </script>
+
+<script type="text/javascript" src="{% static 'js/swiper.jquery.js' %}">    </script>
+
+{#wa keng #}
+    {% block extScript %}
+
+
+    {% endblock %}
+
+{# zhu ti #}
+    {% block header %}
+
+
+    {% endblock %}
+    {% block content %}
+
+
+    {% endblock %}
+    {% block footer %}
+
+
+    {% endblock %}
+
+
+
+
+</body>
+</html>

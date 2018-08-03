@@ -1,0 +1,134 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block extStyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href=" {% static 'app/mine/css/mine.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div id="mine">
+        <div class="fixed">
+
+
+            {% if  is_login %}
+                <a href="">{{ uname }}</a>
+                <span><img src="{{ uicon }}"></span>
+            {% else %}
+                <span class="glyphicon glyphicon-user"></span>
+                <a href="{% url 'app:login' %}">请登录</a>
+            {% endif %}
+
+            <p><span class="glyphicon glyphicon-thumbs-up"></span><span>等级</span></p>
+            {% if not is_login %}
+                <div id="regis"><a href="{% url 'app:register' %}">注册</a></div>
+            {% endif %}
+            <p><span class="glyphicon glyphicon-heart"></span>收藏</p>
+        </div>
+
+        <div class="mine">
+            <p>我的订单<span><a href="">更多</a></span></p>
+            <div id="nav">
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>代付款</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </dt>
+                            <dd>代收货</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </dt>
+                            <dd>退货</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-envelope"></span>
+                            </dt>
+                            <dd>售后</dd>
+                        </dl>
+                    </li>
+                </ul>
+
+            </div>
+            <menu>
+                <ul>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>代付款</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>代付款</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>代付款</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>代付款</dd>
+                        </dl>
+                    </li>
+                    <li>
+                        <dl>
+                            <dt>
+                                <span class="glyphicon glyphicon-usd"></span>
+                            </dt>
+                            <dd>代付款</dd>
+                        </dl>
+                    </li>
+
+                    {% if is_login %}
+                        <li>
+                            <dl>
+                                <a href="{% url 'app:loginout' %}">
+                                    <dt>
+                                        <span class="glyphicon glyphicon-usd"></span>
+                                    </dt>
+                                    <dd>tuichu</dd>
+                                </a>
+                            </dl>
+
+                        </li>
+                    {% endif %}
+
+
+                </ul>
+
+            </menu>
+        </div>
+
+
+    </div>
+{% endblock %}

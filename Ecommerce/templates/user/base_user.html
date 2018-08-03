@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extStyle %}
+    <link rel="stylesheet" href="  {% static 'css/base.css' %} ">
+{% endblock %}
+{% block extScript %}
+    <script type="text/javascript" src="{% static 'app/user/md5.js' %}"></script>
+{% endblock %}

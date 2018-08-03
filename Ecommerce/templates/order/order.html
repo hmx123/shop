@@ -1,0 +1,20 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block content %}
+    <fieldset>
+        {{ order.o_user.phone}}
+        <form action="" method="post"></form>
+        {% csrf_token %}
+        {% for foo in orderDetail %}
+        <div>
+            <img src="{{ foo.od_goods.c_goods.productimg }}" >
+            <div>{{ foo.od_goods.c_goods.productlongname }}</div>
+
+
+        </div>
+        {% endfor %}
+
+
+    </fieldset>
+{% endblock %}

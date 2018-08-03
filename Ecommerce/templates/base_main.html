@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extStyle %}
+    <link rel="stylesheet" href="  {% static 'css/base.css' %} ">
+{% endblock %}
+
+{% block header %}
+    <header>
+        <h1>Jingdong supermarket</h1>
+    </header>
+
+{% endblock %}
+
+{% block footer %}
+    <footer>
+
+        <a href="{% url 'app:home' %}" class="home">
+            <dl>
+                <dt><span>  </span></dt>
+                <dd> zhuye</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'app:market' %}" class="market">
+            <dl>
+                <dt><span>  </span></dt>
+                <dd> shansong</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'app:cart' %}" class="cart">
+            <dl>
+                <dt><span>  </span></dt>
+                <dd> cart</dd>
+            </dl>
+        </a>
+
+        <a href="{% url 'app:mine' %}" class="mine">
+            <dl>
+                <dt><span>  </span></dt>
+                <dd> mine</dd>
+            </dl>
+        </a>
+
+
+
+    </footer>
+
+{% endblock %}

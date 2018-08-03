@@ -1,0 +1,108 @@
+{% extends 'base_main.html' %}
+{% load static %}
+
+{% block extStyle %}
+    {{ block.super }}
+    <link rel="stylesheet" href=" {% static 'app/cart/css/cart.css' %}">
+{% endblock %}
+{% block extScript %}
+    <script type="text/javascript" src="{% static 'app/cart/js/cart.js' %}"></script>
+{% endblock %}
+{% block content %}
+
+    <div id="cart">
+        <h3>购物车</h3>
+        <div class="full">
+            <section class="clear">
+                <ul>
+                    <li>收货人:{{ name }}
+                        <div><p><span><a href="#">修改&gt;</a></span></p></div>
+                    </li>
+                    <li>电话:{{ phone }}</li>
+                    <li>收货地址:宝胜北里西区28号天丰利商城</li>
+                </ul>
+                <div class="bill">
+                    <p>闪送超市</p>
+                    <a href="#">凑单专区</a>
+                    <p>满100减99</p>
+                </div>
+
+                <p class="delivery">
+                    <span>收货时间:</span>
+                    <span>一小时送达</span>
+                    <a href="#">可送达&gt;</a>
+                </p>
+                <p class="delivery">
+                    <span>留言:</span>
+                    <input type="text" placeholder="有什么特殊需求">
+                </p>
+
+                <menu>
+
+                    <ul>
+                        {% for foo in cart %}
+
+
+
+                            <li class="menuList" cartid=" {{ foo.id }}">
+                                <div class="confirm">
+                                    <span class="is_choose">
+                                        {% if foo.is_select %}
+                                            <span>√</span>
+                                        {% else %}
+                                            <span></span>
+                                        {% endif %}
+
+
+
+                                    </span>
+                                </div>
+                                <a href="#">
+                                    <img src="  {{ foo.c_goods.productimg }} ">
+                                    <p> {{ foo.c_goods.productlongname }}</p>
+                                    <p> &yen;{{ foo.c_goods.price }}</p>
+                                </a>
+                                <section>
+                                    <button class="subShopping">-</button>
+                                    <span>{{ foo.c_num }}</span>
+                                    <button class="addShopping">+</button>
+                                </section>
+                            </li>
+                        {% endfor %}
+
+
+                        <li class="payTheBill">
+
+                            <div class="confirm" id="all_select">
+                                <span id="all_select_inner" select="allselect" all_select_inner="on">
+{#                                    {% ifequal allselect '1' %}#}
+{#                                        <span></span>#}
+{#                                    {% else %}#}
+{#                                        <span>√</span>#}
+{#                                    {% endifequal %}#}
+                                    <span id="zhuang" >√</span>
+
+                                </span>
+                            </div>
+
+                            <p>
+                                <span>全选</span>
+                                <span >总价:<span id="cartsum" >&yen;{{ cartsum }}</span></span>
+                            </p>
+                            {% ifequal is_select '0' %}
+                                <a href="#"><span>下单</span></a>
+                            {% else %}
+                                <a href="{% url 'app:create' %}"><span>下单</span></a>
+                            {% endifequal %}
+
+
+                        </li>
+
+                    </ul>
+
+                </menu>
+
+            </section>
+        </div>
+    </div>
+{% endblock %}

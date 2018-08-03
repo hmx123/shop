@@ -1,0 +1,34 @@
+{% extends 'user/base_user.html' %}
+{% load static %}
+
+{% block extScript %}
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'app/user/user_login.js' %}"></script>
+{% endblock%}
+
+{% block content %}
+    <form action="{% url 'app:login' %}"  method="post"
+          enctype="multipart/form-data"  onsubmit="checklogin()">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="exampleInputName">UserName</label>
+            <input type="text" name="username" class="form-control" id="exampleInputName" placeholder="Input UserName">
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="text" name="userpwd" class="form-control" id="password1" placeholder="Input Password">
+        </div>
+
+
+
+
+
+        <button type="submit" class="btn btn-success ">Login</button>
+
+    </form>
+{% endblock %}
